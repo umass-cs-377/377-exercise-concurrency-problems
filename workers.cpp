@@ -23,8 +23,8 @@ void *thread1(void *arg) {
     // Do work with both locks
     sleep(1);
 
-    pthread_mutex_lock(&lock2);
-    pthread_mutex_lock(&lock1);
+    pthread_mutex_unlock(&lock2);
+    pthread_mutex_unlock(&lock1);
     return NULL;
 }
 
@@ -41,8 +41,8 @@ void *thread2(void *arg) {
     // Do work with both locks
     sleep(1);
 
-    pthread_mutex_lock(&lock1);
-    pthread_mutex_lock(&lock2);
+    pthread_mutex_unlock(&lock1);
+    pthread_mutex_unlock(&lock2);
     return NULL;
 }
 
